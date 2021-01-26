@@ -2,6 +2,10 @@
 
 A Node.js app using [Express 4](http://expressjs.com/).
 
+## Configuration
+
+You have to open `package.json` file and edit `config` object. You can set back-end url `URL_BACK`, valid key values `VALID_KEY_VALUES` and valid date format `VALID_DATE_FORMAT`.
+
 ## Running Locally
 
 Make sure you have [Node.js](http://nodejs.org/) installed.
