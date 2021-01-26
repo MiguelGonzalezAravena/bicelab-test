@@ -14,6 +14,7 @@ app
 app.get('/', (req, res) => { res.json({ status: 'OK' }) });
 
 // Set urls from API
+// TO-DO: Add post urls (dynamically) by reading API response
 app.use('/indicators', indicators);
 
 // 404 error
