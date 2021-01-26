@@ -1,0 +1,40 @@
+{
+  "name": "bicelab-backend",
+  "version": "1.0.0",
+  "description": "Back-end de test de Banco Bice Lab.",
+  "config": {
+    "URL_BACK": "https://www.indecon.online/",
+    "VALID_KEY_VALUES": "cobre|dolar|euro|ipc|ivp|oro|plata|uf|utm|yen",
+    "VALID_DATE_FORMAT": "DD-MM-AAAA"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha test/init.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.15.2",
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "got": "^11.3.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.7",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MiguelGonzalezAravena/bicelab-test"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "license": "MIT"
+}
