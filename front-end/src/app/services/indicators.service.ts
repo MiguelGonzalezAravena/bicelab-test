@@ -15,10 +15,11 @@ export class IndicatorsService {
   private url_getKeys: string = '';
 
   constructor(private http: HttpClient) {
-    this.url_getLast = GlobalVar.URL_BACK + 'getLast';
-    this.url_getValues = GlobalVar.URL_BACK + 'getValues';
-    this.url_getValuesByDate = GlobalVar.URL_BACK + 'getValuesByDate';
-    this.url_getKeys = GlobalVar.URL_BACK + 'getKeys';
+    this.url_getLast = GlobalVar.URL_BACK + 'indicators/getLast';
+    this.url_getValues = GlobalVar.URL_BACK + 'indicators/getValues';
+    this.url_getValuesByDate =
+      GlobalVar.URL_BACK + 'indicators/getValuesByDate';
+    this.url_getKeys = GlobalVar.URL_BACK + 'indicators/getKeys';
   }
 
   processResponse(data: Indicators) {
