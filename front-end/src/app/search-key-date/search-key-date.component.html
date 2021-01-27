@@ -1,0 +1,64 @@
+<section>
+  <p>Buscar por un indicador y fecha en específico.</p>
+  <mat-grid-list cols="3" rowHeight="200px">
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Selecciona un valor</mat-label>
+        <mat-select [(value)]="key">
+          <mat-option *ngFor="let i of keys" [value]="i">{{
+            i?.toUpperCase()
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Selecciona una fecha</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          (dateChange)="changeDate($event)"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="key?.length == 0"
+        (click)="onSendKey()"
+      >
+        Buscar
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>
+<mat-divider *ngIf="isSubmit"></mat-divider>
+<section *ngIf="isSubmit">
+  <mat-grid-list cols="1" rowHeight="200px">
+    <mat-grid-tile>
+      <mat-card class="indicator-card">
+        <mat-card-title>{{ key?.toUpperCase() }}</mat-card-title>
+        <mat-card-subtitle>{{ result?.name }} </mat-card-subtitle>
+        <mat-card-content>
+          <table class="indicator-table">
+            <tr>
+              <td class="indicator-width"><b>Unidad</b></td>
+              <td class="indicator-width">{{ result?.unit }}</td>
+            </tr>
+            <tr>
+              <td class="indicator-width"><b>Fecha</b></td>
+              <td class="indicator-width">{{ result?.date | formatDate }}</td>
+            </tr>
+            <tr>
+              <td class="indicator-width"><b>Valor</b></td>
+              <td class="indicator-width">{{ result?.value }}</td>
+            </tr>
+          </table>
+        </mat-card-content>
+      </mat-card></mat-grid-tile
+    >
+  </mat-grid-list>
+</section>
