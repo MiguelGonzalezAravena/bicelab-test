@@ -10,8 +10,15 @@ module.exports = {
   getLast: async (req, res) => {
     try {
       // Get last values from all elements
+      let newData = [];
       const response = await axios.get(baseUrl + 'last');
-      res.json(reply.ok(response.data || {}));  
+
+      // Creating new array of values
+      Object.entries(response.data).forEach(async ([ key, value ]) => {
+        await newData.push(value);
+      });
+
+      res.json(reply.ok(newData));  
     } catch(err) {
       res.json(reply.error(err));
     }
@@ -28,7 +35,15 @@ module.exports = {
         res.json(reply.error('Por favor, ingresa un elemento válido.'));
       } else {
         // Get all values from a specific element
+        let newData = [];
         const response = await axios.get(`${baseUrl}values/${args.key}`);
+        /*
+        // Creating new array of values
+        Object.entries(response.data.values).forEach(async ([ key, value ]) => {
+          await newData[]
+        });
+        */
+
         res.json(reply.ok(response.data || {}));
       }
     } catch(err) {
@@ -55,6 +70,13 @@ module.exports = {
         const response = await axios.get(`${baseUrl}date/${args.key}/${args.date}`);
         res.json(reply.ok(response.data || {}));
       }
+    } catch(err) {
+      res.json(reply.error(err));
+    }
+  },
+  getKeys: (req, res) => {
+    try {
+      res.json(reply.ok(validKeyValues));
     } catch(err) {
       res.json(reply.error(err));
     }

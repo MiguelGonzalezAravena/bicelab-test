@@ -6,5 +6,6 @@ const indicators = require('../services/indicators.service');
 router.post('/getLast', indicators.getLast);
 router.post('/getValues/', indicators.getValues);
 router.post('/getValuesByDate/', indicators.getValuesByDate);
+router.post('/getKeys', indicators.getKeys);
 
 module.exports = router;
