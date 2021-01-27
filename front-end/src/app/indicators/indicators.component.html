@@ -1,0 +1,27 @@
+<mat-grid-list cols="3" class="container-cards" rowHeight="200px">
+  <mat-grid-tile *ngFor="let i of indicators">
+    <mat-card class="indicator-card">
+      <mat-card-title>{{ i?.key.toUpperCase() }}</mat-card-title>
+      <mat-card-subtitle>{{ i?.name }} </mat-card-subtitle>
+      <mat-card-content>
+        <table class="indicator-table">
+          <tr>
+            <td class="indicator-width"><b>Unidad</b></td>
+            <td class="indicator-width">{{ i?.unit }}</td>
+          </tr>
+          <tr>
+            <td class="indicator-width"><b>Fecha</b></td>
+            <td class="indicator-width">{{ i?.date | formatDate }}</td>
+          </tr>
+          <tr>
+            <td class="indicator-width"><b>Valor</b></td>
+            <td class="indicator-width">{{ i?.value }}</td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <!-- mat-card-actions>
+        <button mat-raised-button color="primary">Revisar</button>
+      </mat-card-actions -->
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

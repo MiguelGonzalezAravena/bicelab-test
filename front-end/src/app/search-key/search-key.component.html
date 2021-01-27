@@ -1,0 +1,53 @@
+<section>
+  <mat-grid-list cols="2" rowHeight="200px">
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Selecciona un valor</mat-label>
+        <mat-select [(value)]="key">
+          <mat-option *ngFor="let i of keys" [value]="i">{{
+            i?.toUpperCase()
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="key?.length == 0"
+        (click)="onSendKey()"
+      >
+        Buscar
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>
+<mat-divider *ngIf="isSubmit"></mat-divider>
+<section *ngIf="isSubmit">
+  <!-- table mat-table #myTable [dataSource]="dataSource" class="mat-elevation-z8">
+     Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition"
+
+    Position Column
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let i">{{ i.date | formatDate }}</td>
+    </ng-container>
+
+    Name Column 
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef>Valor</th>
+      <td mat-cell *matCellDef="let i">{{ i.value }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table-->
+
+  <!--mat-paginator
+    [pageSizeOptions]="[20, 50, 100, 200]"
+    showFirstLastButtons
+  ></mat-paginator -->
+
+  <div [chart]="chart"></div>
+</section>
