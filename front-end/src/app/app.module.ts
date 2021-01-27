@@ -14,14 +14,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-// import { MatTableDataSourceModule } from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { IndicatorsService } from './services/indicators.service';
 import { IndicatorsComponent } from './indicators/indicators.component';
 import { FormatDatePipe } from './pipes/format-date.pipe';
 import { SearchKeyComponent } from './search-key/search-key.component';
+import { SearchKeyDateComponent } from './search-key-date/search-key-date.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SearchKeyComponent } from './search-key/search-key.component';
     IndicatorsComponent,
     FormatDatePipe,
     SearchKeyComponent,
+    SearchKeyDateComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,11 +42,12 @@ import { SearchKeyComponent } from './search-key/search-key.component';
     MatButtonModule,
     MatGridListModule,
     MatTabsModule,
+    MatInputModule,
     MatProgressSpinnerModule,
     MatSelectModule,
     MatDividerModule,
-    MatTableModule,
-    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [IndicatorsService],
   bootstrap: [AppComponent],
