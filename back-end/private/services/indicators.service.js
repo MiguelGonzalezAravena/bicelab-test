@@ -35,14 +35,7 @@ module.exports = {
         res.json(reply.error('Por favor, ingresa un elemento válido.'));
       } else {
         // Get all values from a specific element
-        let newData = [];
         const response = await axios.get(`${baseUrl}values/${args.key}`);
-        /*
-        // Creating new array of values
-        Object.entries(response.data.values).forEach(async ([ key, value ]) => {
-          await newData[]
-        });
-        */
 
         res.json(reply.ok(response.data || {}));
       }
