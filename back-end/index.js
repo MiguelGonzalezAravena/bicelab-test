@@ -1,8 +1,11 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
+const https = require('https');
+const fs = require('fs');
+const app = express();
 const reply = require('./private/utils/reply');
 const PORT = process.env.PORT || 5000;
+// const passphrase = process.env.npm_package_config_CERT_PASSPHRASE;
 
 // Services
 const indicators = require('./private/routes/indicators.router');
@@ -39,7 +42,6 @@ app.use((req, res, next) => {
     return res.json(reply.error('This is CORS-enabled for a whitelisted domain.'));
   }
 });
-  
 
 app.get('/', (req, res) => { res.json({ status: 'OK' }) });
 
@@ -49,4 +51,12 @@ app.use('/indicators', indicators);
 
 // 404 error
 app.use((req, res) => res.status(404).json(reply.error('SERVICE_NOT_FOUND')));
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+/* TO-DO: Add certificates
+https.createServer({
+  key: fs.readFileSync('./cert/key.pem'),
+  cert: fs.readFileSync('./cert/cert.pem'),
+  passphrase: passphrase
+}, app)
+*/
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
