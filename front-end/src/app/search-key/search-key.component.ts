@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
-import { Chart, StockChart } from 'angular-highcharts';
+import { StockChart } from 'angular-highcharts';
 import { IndicatorsService } from '../services/indicators.service';
 
 @Component({
@@ -15,11 +14,7 @@ export class SearchKeyComponent implements OnInit {
   results: any;
   isSubmit: boolean = false;
 
-  displayedColumns: string[] = [];
-  dataSource: any = [];
   chartData: any = [];
-  @ViewChild('myTable', { static: false })
-  table!: MatTable<any>;
   chart!: any;
 
   constructor(private indicatorsService: IndicatorsService) {
@@ -39,18 +34,14 @@ export class SearchKeyComponent implements OnInit {
         this.results = data;
         console.log('onSendKey', this.results);
         Object.entries(this.results.values).forEach(async ([key, value]) => {
-          // await this.dataSource.push({ name: key, value: value });
           await this.chartData.push([<any>key * 1000, value]);
         });
-
-        // console.log('dataSource', this.dataSource);
-        // this.table.renderRows();
         this.chart = new StockChart({
           rangeSelector: {
             selected: 1,
           },
           title: {
-            text: `Valor de ${this.key.toUpperCase()}`,
+            text: `Valor de ${this.key.toUpperCase()} en ${this.results.unit.toUpperCase()}`,
           },
           series: [
             {
@@ -70,7 +61,5 @@ export class SearchKeyComponent implements OnInit {
 
   ngOnInit(): void {
     this.isSubmit = false;
-    this.displayedColumns.push('date');
-    this.displayedColumns.push('value');
   }
 }
