@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "description": "Back-end de test de Banco Bice Lab.",
   "config": {
+    "URL": "http://127.0.0.1:5000",
     "URL_BACK": "https://www.indecon.online/",
     "VALID_KEY_VALUES": "cobre|dolar|euro|ipc|ivp|oro|plata|uf|utm|yen",
-    "VALID_DATE_FORMAT": "DD-MM-AAAA"
+    "VALID_DATE_FORMAT": "DD-MM-AAAA",
+    "CERT_PASSPHRASE": "miguel123;"
   },
   "engines": {
     "node": "14.x"
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "test": "mocha test/init.js"
   },
   "dependencies": {

@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const assert = chai.assert;
-const url = 'http://127.0.0.1:5000';
+const url = process.env.npm_package_config_URL;
 const urlCore = process.env.npm_package_config_URL_BACK;
 
 chai.use(chaiHttp);
