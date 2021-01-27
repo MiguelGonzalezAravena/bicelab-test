@@ -1,4 +1,3 @@
-<!-- Content -->
 <mat-tab-group mat-align-tabs="center">
   <mat-tab label="Indicadores">
     <div class="padding-page">
@@ -11,7 +10,11 @@
       <app-search-key></app-search-key>
     </div>
   </mat-tab>
-  <mat-tab label="Búsqueda por indicador y fecha"> C </mat-tab>
+  <mat-tab label="Búsqueda por indicador y fecha">
+    <div class="padding-page">
+      <app-search-key-date></app-search-key-date>
+    </div>
+  </mat-tab>
 </mat-tab-group>
 <!-- TO-DO: mat-progress-spinner mode="indeterminate"></mat-progress-spinner -->
 <router-outlet></router-outlet>
